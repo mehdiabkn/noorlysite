@@ -3,6 +3,7 @@ import './App.css'
 
 function App() {
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const reviews = [
     { text: "Sans Noorly c'est triste mais je ne lis presque jamais le Coran", author: "Leila B." },
@@ -18,6 +19,19 @@ function App() {
 
     return () => clearInterval(interval)
   }, [])
+
+  const emailBody = `Bonjour,
+
+Je suis intéressé(e) par une collaboration en tant qu'expert TikTok pour Noorly.
+
+Le.s compte.s sur lesquels j'ai fait des vues:
+-
+
+Mon numéro de téléphone:
+
+Merci !`
+
+  const mailtoLink = `mailto:samy.aberkane0@gmail.com?subject=${encodeURIComponent('Expert TikTok - Candidature')}&body=${encodeURIComponent(emailBody)}`
 
   return (
     <div className="welcome-container">
@@ -48,12 +62,49 @@ function App() {
       </a>
 
       {/* Bouton experts TikTok */}
-      <a
-        href="mailto:mohammed@noorly.app?subject=Expert%20TikTok%20-%20Candidature&body=Bonjour%2C%0A%0AJe%20suis%20int%C3%A9ress%C3%A9(e)%20par%20une%20collaboration%20en%20tant%20qu'expert%20TikTok.%0A%0AMon%20profil%20TikTok%20%3A%20%0AMes%20statistiques%20%3A%20%0A%0AMerci%20!"
+      <button
+        onClick={() => setIsModalOpen(true)}
         className="expert-button"
       >
         On recherche des experts TikTok, c'est ton cas ?
-      </a>
+      </button>
+
+      {/* Modale TikTok */}
+      {isModalOpen && (
+        <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setIsModalOpen(false)}>×</button>
+
+            <h2 className="modal-title">On recherche des pros de TikTok </h2>
+
+            <div className="modal-body">
+              <div className="modal-section">
+                <h3>📋 Ce qu'on recherche</h3>
+                <p>Des créateurs de contenu TikTok, <strong>pas de nombre d'abonnés minimal</strong>, juste du bon contenu !</p>
+              </div>
+
+              <div className="modal-section">
+                <h3>💰 Rémunération</h3>
+                <p>Environ <strong>1€ par 1000 vues</strong></p>
+                <p className="modal-limit">Limité à 100€ par jour</p>
+              </div>
+
+              <div className="modal-section">
+                <h3>💳 Paiement</h3>
+                <p>PayPal ou virement bancaire</p>
+              </div>
+
+              <div className="modal-section modal-cta">
+                <h3>📧 Pour postuler</h3>
+                <p>Donne-nous quelques comptes TikTok sur lesquels tu as bien chiffré, laisse-nous ton tel et on revient vers toi !</p>
+                <a href={mailtoLink} className="modal-apply-button">
+                  Postuler maintenant
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Section avis en bas */}
       <div className="reviews-section">
