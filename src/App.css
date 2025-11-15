@@ -330,6 +330,63 @@
     opacity: 0.9;
 }
 
+/* Section copie d'email */
+.email-copy-section {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.email-copy-text {
+    font-size: 14px;
+    color: rgba(102, 115, 128, 1);
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.email-display {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.03);
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.email-address {
+    flex: 1;
+    font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    color: rgba(76, 89, 102, 1);
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.copy-button {
+    background: #000000;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.copy-button:hover {
+    background: #1a1a1a;
+    transform: scale(1.02);
+}
+
+.copy-button:active {
+    transform: scale(0.98);
+}
+
 /* Animations */
 @keyframes fadeIn {
     from {
@@ -445,6 +502,15 @@
     .modal-section p {
         font-size: 14px;
     }
+
+    .email-address {
+        font-size: 13px;
+    }
+
+    .copy-button {
+        font-size: 12px;
+        padding: 7px 14px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -518,6 +584,23 @@
     .modal-apply-button {
         font-size: 15px;
         padding: 14px 24px;
+    }
+
+    .email-display {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .email-address {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .copy-button {
+        font-size: 12px;
+        padding: 10px 16px;
+        width: 100%;
     }
 }
 
