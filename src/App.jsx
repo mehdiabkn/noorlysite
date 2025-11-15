@@ -4,6 +4,7 @@ import './App.css'
 function App() {
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [copySuccess, setCopySuccess] = useState(false)
 
   const reviews = [
     { text: "Sans Noorly c'est triste mais je ne lis presque jamais le Coran", author: "Leila B." },
@@ -32,6 +33,16 @@ Mon numéro de téléphone:
 Merci !`
 
   const mailtoLink = `mailto:samy.aberkane0@gmail.com?subject=${encodeURIComponent('Expert TikTok - Candidature')}&body=${encodeURIComponent(emailBody)}`
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText('noorly.app@outlook.fr')
+      setCopySuccess(true)
+      setTimeout(() => setCopySuccess(false), 2000)
+    } catch (err) {
+      console.error('Erreur lors de la copie:', err)
+    }
+  }
 
   return (
     <div className="welcome-container">
@@ -111,9 +122,18 @@ Merci !`
                 <a href={mailtoLink} className="modal-apply-button">
                   Postuler maintenant
                 </a>
-                <p className="modal-fallback-email">
-                  Si le bouton est bloqué, écris nous à : <strong>noorly.app@outlook.fr</strong>
-                </p>
+
+                <div className="email-copy-section">
+                  <p className="modal-fallback-email">
+                    Si le bouton est bloqué, écris nous directement :
+                  </p>
+                  <div className="email-display">
+                    <span className="email-address">noorly.app@outlook.fr</span>
+                    <button onClick={copyToClipboard} className="copy-button">
+                      {copySuccess ? '✓ Copié !' : 'Copier'}
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
