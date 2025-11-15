@@ -76,9 +76,9 @@ Merci !`
 
       {/* Bouton Apple noir */}
       <a
-        href="https://apps.apple.com/fr/app/noorly-coran-quotidien/id6755007429"
+        href="https://www.tiktok.com/link/v2?aid=1988&lang=fr&scene=bio_url&target=https%3A%2F%2Fapps.apple.com%2Ffr%2Fapp%2Fnoorly-coran-quotidien%2Fid6755007429"
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noindex nofollow noreferrer noopener"
         className="apple-button"
         onClick={() => trackEvent('click_commencer')}
       >
@@ -127,16 +127,9 @@ Merci !`
               <div className="modal-section modal-cta">
                 <h3>📧 Pour postuler</h3>
                 <p>Donne-nous quelques comptes TikTok sur lesquels tu as bien chiffré, laisse-nous ton tel et on revient vers toi !</p>
-                <a
-                  href={mailtoLink}
-                  className="modal-apply-button"
-                  onClick={() => trackEvent('click_postuler')}
-                >
-                  Postuler maintenant
-                </a>
 
                 <div className="email-copy-section">
-                  <p className="email-copy-text">Ou contacte-nous par email :</p>
+                  <p className="email-copy-text"><strong>Envoie-nous un email à :</strong></p>
                   <div className="email-display">
                     <span className="email-address">noorly.app@outlook.fr</span>
                     <button
@@ -146,6 +139,7 @@ Merci !`
                       {emailCopied ? '✓ Copié !' : '📋 Copier'}
                     </button>
                   </div>
+                  <p className="email-instruction">👆 Clique pour copier l'email, puis ouvre ton app Gmail/Mail</p>
                 </div>
               </div>
             </div>
