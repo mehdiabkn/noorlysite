@@ -1,137 +1,196 @@
-.container {
+/* Container principal */
+.welcome-container {
     width: 100%;
-    max-width: 400px;
+    max-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 30px;
     animation: fadeIn 0.6s ease-out;
 }
 
-.card {
-    background: white;
-    border-radius: 24px;
-    padding: 40px 30px 30px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    text-align: center;
-    animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+/* Logo Noorly */
+.logo {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: rgba(76, 89, 102, 1);
+    margin: 0 0 25px 0;
+    padding: 0;
+    animation: fadeInDown 0.8s ease-out;
 }
 
-/* Icône coeur */
-.icon-wrapper {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 30px;
-    animation: iconScale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s backwards;
+/* Image de couverture */
+.cover-image {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 25px;
+    animation: scaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s backwards;
 }
 
-.circle-bg {
+.app-icon {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(112, 80, 144, 1) 0%, rgba(96, 64, 128, 1) 100%);
-    border-radius: 50%;
-    box-shadow: 0 10px 20px rgba(112, 80, 144, 0.3);
-    animation: pulse 2s ease-in-out infinite;
+    border-radius: 22%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-.heart-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 45px;
-    height: 45px;
-}
-
-/* Textes */
-.title {
-    font-size: 28px;
-    font-weight: 700;
-    color: rgb(51, 77, 102);
-    margin-bottom: 12px;
-    line-height: 1.3;
-}
-
-.subtitle {
-    font-size: 16px;
-    color: rgb(102, 128, 153);
-    margin-bottom: 40px;
+/* Slogan principal */
+.main-slogan {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(76, 89, 102, 1);
     line-height: 1.5;
+    max-width: 550px;
+    margin: 0 auto 30px;
+    padding: 0 20px;
+    animation: fadeIn 1s ease-out 0.4s backwards;
 }
 
-/* Conteneur des boutons */
-.buttons-container {
+/* Section avis */
+.reviews-section {
+    width: 100%;
+    max-width: 700px;
+    margin: 35px auto 0;
+    padding: 0 20px;
+}
+
+/* Étoiles */
+.stars {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 12px;
+    animation: fadeIn 1s ease-out 0.6s backwards;
 }
 
-/* Styles communs des boutons */
-.btn {
+.star {
+    width: 14px;
+    height: 14px;
+    filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.5));
+}
+
+/* Carrousel d'avis */
+.review-carousel {
+    position: relative;
+    min-height: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    padding: 16px 24px;
-    border-radius: 14px;
-    font-size: 16px;
+}
+
+.review {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.review.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.review-text {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(102, 115, 128, 1);
+    line-height: 1.6;
+    margin: 0 0 8px 0;
+    padding: 0 30px;
+}
+
+.review-author {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    font-style: italic;
+    color: rgba(128, 140, 153, 1);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* Bouton Apple NOIR */
+.apple-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 380px;
+    padding: 16px 28px;
+    margin: 0 auto 15px;
+    background: #000000;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 17px;
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.3s ease;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.15s ease;
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
+    animation: fadeInUp 1s ease-out 0.8s backwards;
 }
 
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-}
-
-.btn:hover::before {
-    transform: translateX(0);
-}
-
-.btn:active {
+.apple-button:hover {
     transform: scale(0.98);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Bouton primaire (App Store) */
-.btn-primary {
-    background: linear-gradient(90deg, rgba(112, 80, 144, 1) 0%, rgba(96, 64, 128, 1) 100%);
-    color: white;
-    box-shadow: 0 5px 10px rgba(112, 80, 144, 0.3);
+.apple-button:active {
+    transform: scale(0.96);
+    opacity: 0.9;
 }
 
-.btn-primary:hover {
-    box-shadow: 0 8px 16px rgba(112, 80, 144, 0.4);
-    transform: translateY(-2px);
-}
-
-/* Bouton secondaire (Email) */
-.btn-secondary {
-    background: white;
-    color: rgb(112, 80, 144);
-    border: 2px solid rgb(112, 80, 144);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.btn-secondary:hover {
-    background: rgba(112, 80, 144, 0.05);
-    box-shadow: 0 4px 12px rgba(112, 80, 144, 0.2);
-    transform: translateY(-2px);
-}
-
-/* Icônes */
-.apple-icon,
-.email-icon {
-    width: 24px;
-    height: 24px;
+.apple-icon {
+    width: 22px;
+    height: 22px;
     flex-shrink: 0;
+}
+
+/* Bouton experts TikTok */
+.expert-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 380px;
+    padding: 16px 28px;
+    margin: 0 auto;
+    background: #000000;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.15s ease;
+    cursor: pointer;
+    animation: fadeInUp 1s ease-out 1s backwards;
+}
+
+.expert-button:hover {
+    transform: scale(0.98);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.expert-button:active {
+    transform: scale(0.96);
+    opacity: 0.9;
 }
 
 /* Animations */
@@ -144,70 +203,175 @@
     }
 }
 
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @keyframes scaleIn {
     from {
-        transform: scale(0.5);
+        transform: scale(0.8);
         opacity: 0;
     }
     to {
         transform: scale(1);
         opacity: 1;
-    }
-}
-
-@keyframes iconScale {
-    from {
-        transform: scale(0.5);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-}
-
-/* Effet ripple */
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.6);
-    transform: scale(0);
-    animation: ripple-animation 0.6s ease-out;
-    pointer-events: none;
-}
-
-@keyframes ripple-animation {
-    to {
-        transform: scale(4);
-        opacity: 0;
     }
 }
 
 /* Responsive */
+@media (max-width: 768px) {
+    .welcome-container {
+        padding: 30px 25px;
+    }
+
+    .logo {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .cover-image {
+        width: 160px;
+        height: 160px;
+        margin-bottom: 20px;
+    }
+
+    .main-slogan {
+        font-size: 18px;
+        padding: 0 15px;
+        margin-bottom: 25px;
+    }
+
+    .review-text {
+        font-size: 14px;
+        padding: 0 20px;
+    }
+
+    .apple-button {
+        max-width: 100%;
+        font-size: 16px;
+        padding: 15px 24px;
+        margin-bottom: 12px;
+    }
+
+    .expert-button {
+        max-width: 100%;
+        font-size: 14px;
+        padding: 15px 24px;
+    }
+
+    .reviews-section {
+        margin-top: 30px;
+    }
+}
+
 @media (max-width: 480px) {
-    .card {
-        padding: 30px 20px 25px;
+    .welcome-container {
+        padding: 25px 20px;
     }
 
-    .title {
-        font-size: 24px;
+    .logo {
+        font-size: 32px;
+        margin-bottom: 18px;
     }
 
-    .subtitle {
-        font-size: 15px;
+    .cover-image {
+        width: 140px;
+        height: 140px;
+        margin-bottom: 18px;
     }
 
-    .btn {
+    .main-slogan {
+        font-size: 16px;
+        padding: 0 10px;
+        margin-bottom: 22px;
+    }
+
+    .review-text {
+        font-size: 13px;
+        padding: 0 15px;
+    }
+
+    .review-author {
+        font-size: 12px;
+    }
+
+    .apple-button {
         font-size: 15px;
         padding: 14px 20px;
+        margin-bottom: 10px;
+    }
+
+    .apple-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .expert-button {
+        font-size: 13px;
+        padding: 14px 20px;
+    }
+
+    .reviews-section {
+        margin-top: 25px;
+    }
+}
+
+@media (max-height: 700px) {
+    .welcome-container {
+        padding: 20px;
+    }
+
+    .logo {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .cover-image {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 15px;
+    }
+
+    .main-slogan {
+        font-size: 15px;
+        margin-bottom: 18px;
+    }
+
+    .apple-button {
+        padding: 12px 20px;
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .expert-button {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+
+    .reviews-section {
+        margin-top: 20px;
+    }
+
+    .star {
+        width: 12px;
+        height: 12px;
     }
 }
