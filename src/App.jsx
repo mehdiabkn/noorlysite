@@ -48,6 +48,14 @@ Merci !`
         Invitez la parole d'Allah sur l'écran que vous consultez le plus
       </p>
 
+      {/* GIF tutoriel et message d'aide */}
+      <div className="tutorial-section">
+        <img src="/tuto.gif" alt="Tutoriel" className="tutorial-gif" />
+        <p className="help-message">
+          Si le bouton est bloqué, maintiens le bouton ou recherche sur <strong>l'App Store "Noorly"</strong>
+        </p>
+      </div>
+
       {/* Bouton Apple noir */}
       <a
         href="https://www.tiktok.com/link/v2?aid=1988&lang=fr&scene=bio_url&target=https%3A%2F%2Fapps.apple.com%2Ffr%2Fapp%2Fnoorly-coran-quoti
@@ -103,6 +111,9 @@ Merci !`
                 <a href={mailtoLink} className="modal-apply-button">
                   Postuler maintenant
                 </a>
+                <p className="modal-fallback-email">
+                  Si le bouton est bloqué, écris nous à : <strong>noorly.app@outlook.fr</strong>
+                </p>
               </div>
             </div>
           </div>
